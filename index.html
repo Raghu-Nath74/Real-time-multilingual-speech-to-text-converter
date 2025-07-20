@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech Translation App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Speech Translation App</h1>
+
+        <div class="form-group">
+            <label for="input-language">Input Language</label>
+            <select id="input-language">
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+                <option value="ta">Tamil</option>
+                <option value="te">Telugu</option>
+                <option value="bn">Bengali</option>
+                <option value="gu">Gujarati</option>
+                <option value="kn">Kannada</option>
+                <option value="ml">Malayalam</option>
+                <option value="mr">Marathi</option>
+                <option value="pa">Punjabi</option>
+                <option value="or">Odia</option>
+                <option value="as">Assamese</option>
+                <option value="ur">Urdu</option>
+            </select>
+            <label for="input-text">Input Text (Real-time Input)</label>
+            <textarea id="text-input" rows="4"></textarea>
+            <button id="record-btn" class="record">Record</button>
+            <button id="save-input-btn">Save Input</button>
+        </div>
+
+        <div class="form-group">
+            <label for="output-language">Output Language</label>
+            <select id="output-language">
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+                <option value="ta">Tamil</option>
+                <option value="te">Telugu</option>
+                <option value="bn">Bengali</option>
+                <option value="gu">Gujarati</option>
+                <option value="kn">Kannada</option>
+                <option value="ml">Malayalam</option>
+                <option value="mr">Marathi</option>
+                <option value="pa">Punjabi</option>
+                <option value="or">Odia</option>
+                <option value="as">Assamese</option>
+                <option value="ur">Urdu</option>
+            </select>
+            <button id="translate-btn">Translate</button>
+        </div>
+
+        <div class="form-group">
+            <label for="translated-text">Translated Text</label>
+            <textarea id="translated-text" rows="4" readonly></textarea>
+            <button id="save-translation-btn">Save Translation</button>
+        </div>
+
+        <div class="form-group">
+            <label for="engine-choice">Engine</label>
+            <select id="engine-choice">
+                <option value="pyttsx3">pyttsx3</option>
+                <option value="gtts">gTTS</option>
+            </select>
+
+            <label for="rate">Rate</label>
+            <input type="number" id="rate" value="150">
+
+            <label for="volume">Volume</label>
+            <input type="range" id="volume" min="0" max="1" step="0.1" value="1">
+
+            <button id="speech-btn">Convert to Speech</button>
+            <a id="download-link" style="display: none;">Download Speech</a>
+        </div>
+
+        <audio id="audio" controls style="display: none;"></audio>
+        <div id="loading" style="display: none;">Loading...</div>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
